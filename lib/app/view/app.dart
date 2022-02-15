@@ -23,6 +23,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String defaultLocale = Platform.localeName;
+
     print(defaultLocale);
     return MaterialApp(
       theme: ThemeData(
@@ -30,6 +31,20 @@ class App extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch(
           accentColor: const Color(0xFF13B9FF),
         ),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        /*outlinedButtonTheme: OutlinedButtonThemeData(
+          style: ButtonStyle(
+            padding: MaterialStateProperty.all<EdgeInsets>(
+              const EdgeInsets.all(24),
+            ),
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          ),
+        ),*/
       ),
       localizationsDelegates: [
         AppLocalizations.delegate,
@@ -38,7 +53,7 @@ class App extends StatelessWidget {
         FlutterFireUILocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale('ru', 'RU'),
+      //locale: Locale('ru', 'RU'),
       home: const AuthGate(),
     );
   }
