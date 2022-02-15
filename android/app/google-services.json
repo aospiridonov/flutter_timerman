@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "55979442310",
+    "project_id": "timerman-cb150",
+    "storage_bucket": "timerman-cb150.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55979442310:android:df0707cf9c3223f0465107",
+        "android_client_info": {
+          "package_name": "com.aospiridonov.org.flutter_timerman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55979442310-7avljpsuu7m8p64dg5gumqh30nev0ufg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aospiridonov.org.flutter_timerman",
+            "certificate_hash": "2229654aaa8151052dc41f78eb9b8b9b1c51c049"
+          }
+        },
+        {
+          "client_id": "55979442310-tvsji4bkicdn8lqv43926hf1g8r1i4b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS0Y4NeKxHbjdrzN_oNq2PTDOxhsmaS30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "55979442310-tvsji4bkicdn8lqv43926hf1g8r1i4b0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
