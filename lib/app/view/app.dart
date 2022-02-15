@@ -7,8 +7,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_timerman/auth/localization/label_overrides.dart';
+import 'package:flutter_timerman/auth/view/auth_gate.dart';
 import 'package:flutter_timerman/counter/counter.dart';
 import 'package:flutter_timerman/l10n/l10n.dart';
+import 'package:flutterfire_ui/auth.dart';
+import 'package:flutterfire_ui/i10n.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -22,12 +26,14 @@ class App extends StatelessWidget {
           accentColor: const Color(0xFF13B9FF),
         ),
       ),
-      localizationsDelegates: const [
+      localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
+        FlutterFireUILocalizations.withDefaultOverrides(const LabelOverrides()),
+        FlutterFireUILocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const AuthGate(),
     );
   }
 }

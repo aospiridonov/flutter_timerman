@@ -9,12 +9,15 @@ environment:
 dependencies:
   bloc: ^8.0.2
   cached_network_image: ^3.2.0
+  cloud_firestore: ^3.1.7
   cupertino_icons: ^1.0.2
+  google_sign_in: ^5.2.3
   firebase_auth: ^3.3.5
   firebase_core: ^1.11.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  flutter_facebook_auth: ^4.0.1
   flutter_localizations:
     sdk: flutter
   freezed_annotation: ^1.1.0
@@ -22,6 +25,7 @@ dependencies:
 
   json_serializable: ^6.1.4
   pull_to_refresh: ^2.0.0
+  flutterfire_ui: ^0.3.4
 
 
 
