@@ -5,8 +5,11 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_timerman/auth/localization/flutter_fire_ui_ru_localizations_delegate.dart';
 import 'package:flutter_timerman/auth/localization/label_overrides.dart';
 import 'package:flutter_timerman/auth/view/auth_gate.dart';
 import 'package:flutter_timerman/counter/counter.dart';
@@ -19,6 +22,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String defaultLocale = Platform.localeName;
+    print(defaultLocale);
     return MaterialApp(
       theme: ThemeData(
         appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
@@ -29,10 +34,11 @@ class App extends StatelessWidget {
       localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
-        FlutterFireUILocalizations.withDefaultOverrides(const LabelOverrides()),
+        FlutterFireUIRuLocalizationsDelegate(),
         FlutterFireUILocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale('ru', 'RU'),
       home: const AuthGate(),
     );
   }
