@@ -27,24 +27,27 @@ class App extends StatelessWidget {
     print(defaultLocale);
     return MaterialApp(
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
+        appBarTheme: const AppBarTheme(color: Color(0xFFC81426)),
         colorScheme: ColorScheme.fromSwatch(
-          accentColor: const Color(0xFF13B9FF),
+          accentColor: const Color(0xFFC81426),
         ),
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
           ),
+          constraints: const BoxConstraints(maxHeight: 45),
+          //contentPadding: EdgeInsets.zero,
         ),
-        /*outlinedButtonTheme: OutlinedButtonThemeData(
+        outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsets>(
-              const EdgeInsets.all(24),
+              const EdgeInsets.all(16),
             ),
-            backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+            backgroundColor:
+                MaterialStateProperty.all<Color>(Color(0xFFC81426)),
             foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
           ),
-        ),*/
+        ),
       ),
       localizationsDelegates: [
         AppLocalizations.delegate,

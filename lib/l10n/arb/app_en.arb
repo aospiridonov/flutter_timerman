@@ -3,5 +3,8 @@
     "counterAppBarTitle": "Counter",
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
-    }
+    },
+    "welcome_sign_in": "Welcome to FlutterFire UI! Please sign in to continue.",
+    "welcome_register" : "Welcome to FlutterFire UI! Please create an account to continue",
+    "sign_in_term" :"By signing in, you agree to our terms and conditions."
 }

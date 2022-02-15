@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Future<void> signOut() async {
     await GoogleSignIn().signOut();
-    //await FacebookAuth.instance.logOut();
+    await FacebookAuth.instance.logOut();
     await FirebaseAuth.instance.signOut();
   }
 

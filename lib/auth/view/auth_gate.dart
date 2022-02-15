@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_timerman/auth/view/header_logo.dart';
 import 'package:flutter_timerman/home/home_page.dart';
+import 'package:flutter_timerman/l10n/l10n.dart';
 import 'package:flutterfire_ui/auth.dart';
 
 class AuthGate extends StatelessWidget {
@@ -13,6 +15,7 @@ class AuthGate extends StatelessWidget {
       builder: (context, snapshot) {
         // User is not signed in
         if (!snapshot.hasData) {
+          final l10n = context.l10n;
           return SignInScreen(
             providerConfigs: const [
               EmailProviderConfiguration(),
@@ -20,34 +23,30 @@ class AuthGate extends StatelessWidget {
                 clientId:
                     '366728991878-vq3drk6hdbprf3k1sg5u3na7r3699doo.apps.googleusercontent.com',
               ),
+              FacebookProviderConfiguration(
+                clientId: '478207670615281',
+              )
             ],
             headerBuilder: (context, constraints, _) {
-              return Padding(
-                padding: const EdgeInsets.all(20),
-                child: AspectRatio(
-                  aspectRatio: 1,
-                  child: Image.network(
-                    'https://firebase.flutter.dev/img/flutterfire_300x.png',
-                  ),
-                ),
-              );
+              return const HeaderLogo();
             },
+            headerMaxExtent: 250,
             subtitleBuilder: (context, action) {
               return Padding(
-                padding: const EdgeInsets.only(bottom: 8),
+                padding: const EdgeInsets.only(bottom: 1),
                 child: Text(
                   action == AuthAction.signIn
-                      ? 'Welcome to FlutterFire UI! Please sign in to continue.'
-                      : 'Welcome to FlutterFire UI! Please create an account to continue',
+                      ? l10n.welcome_sign_in
+                      : l10n.welcome_register,
                 ),
               );
             },
             footerBuilder: (context, _) {
-              return const Padding(
+              return Padding(
                 padding: EdgeInsets.only(top: 16),
                 child: Text(
-                  'By signing in, you agree to our terms and conditions.',
-                  style: TextStyle(color: Colors.grey),
+                  l10n.sign_in_term,
+                  style: const TextStyle(color: Colors.grey),
                 ),
               );
             },
