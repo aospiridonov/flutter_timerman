@@ -23,7 +23,8 @@ dependencies:
   freezed_annotation: ^1.1.0
   intl: ^0.17.0
 
-  json_serializable: ^6.1.4
+  json_annotation: ^4.4.0
+  
   pull_to_refresh: ^2.0.0
   flutterfire_ui: ^0.3.4
 
@@ -39,6 +40,7 @@ dev_dependencies:
   freezed: ">=1.0.0 <1.1.1"
   mocktail: ^0.2.0
   very_good_analysis: ^2.4.0
+  json_serializable: ^6.1.4
 
 
 flutter:

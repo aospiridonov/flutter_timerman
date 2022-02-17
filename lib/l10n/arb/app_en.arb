@@ -6,5 +6,10 @@
     },
     "welcome_sign_in": "Welcome to FlutterFire UI! Please sign in to continue.",
     "welcome_register" : "Welcome to FlutterFire UI! Please create an account to continue",
-    "sign_in_term" :"By signing in, you agree to our terms and conditions."
+    "sign_in_term" :"By signing in, you agree to our terms and conditions.",
+    "events_title" : "Events",
+    "event_title" : "Event",
+    "about_event" : " About the event",
+    "results_title" : "Results",
+    "my_result_title" : "My results"
 }

@@ -30,7 +30,7 @@ class AuthGate extends StatelessWidget {
             headerBuilder: (context, constraints, _) {
               return const HeaderLogo();
             },
-            headerMaxExtent: 250,
+            headerMaxExtent: 220,
             subtitleBuilder: (context, action) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 1),
@@ -43,10 +43,10 @@ class AuthGate extends StatelessWidget {
             },
             footerBuilder: (context, _) {
               return Padding(
-                padding: EdgeInsets.only(top: 16),
+                padding: const EdgeInsets.only(top: 16),
                 child: Text(
                   l10n.sign_in_term,
-                  style: const TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: Colors.grey, fontSize: 12.0),
                 ),
               );
             },

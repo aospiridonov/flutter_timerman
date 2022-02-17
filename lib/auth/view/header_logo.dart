@@ -22,7 +22,7 @@ class HeaderLogo extends StatelessWidget {
           color: const Color.fromRGBO(0, 0, 0, 0.2),
         ),
         Container(
-          margin: EdgeInsets.only(top: 25.0),
+          margin: const EdgeInsets.only(top: 25),
           alignment: Alignment.topCenter,
           child: SizedBox(
             width: 300,
