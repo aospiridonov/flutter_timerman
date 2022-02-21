@@ -72,24 +72,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              /*_buildUserInfoDisplay(
-                user.firstName,
-                'Name',
-                const EditNameFormPage(),
-              ),*/
               _buildFIO(),
-              /*const ListTile(
-                title: Text('FIO'),
-              ),*/
-/*
-              CustomEditableText(
+              const CustomEditableText(
                   labelText: 'Телефон', text: '+7 123 456 78 90'),
-              
               const CustomEditableText(
                 labelText: 'Электронная почта',
                 text: 'test@test.ru',
               ),
-              */
               _buildLocation(),
               Padding(
                 padding: const EdgeInsets.all(8),
@@ -110,17 +99,23 @@ class _ProfilePageState extends State<ProfilePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: const [
-        CustomEditableText(
-          labelText: 'Фамилия',
-          text: 'Спиридонов',
+        Expanded(
+          child: CustomEditableText(
+            labelText: 'Фамилия',
+            text: 'Спиридонов',
+          ),
         ),
-        CustomEditableText(
-          labelText: 'Имя',
-          text: 'Александр',
+        Expanded(
+          child: CustomEditableText(
+            labelText: 'Имя',
+            text: 'Александр',
+          ),
         ),
-        CustomEditableText(
-          labelText: 'Отчество',
-          text: 'Олегович',
+        Expanded(
+          child: CustomEditableText(
+            labelText: 'Отчество',
+            text: 'Олегович',
+          ),
         ),
       ],
     );
@@ -131,17 +126,23 @@ class _ProfilePageState extends State<ProfilePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: const [
-        CustomEditableText(
-          labelText: 'Страна',
-          text: 'Россия',
+        Expanded(
+          child: CustomEditableText(
+            labelText: 'Страна',
+            text: 'Россия',
+          ),
         ),
-        CustomEditableText(
-          labelText: 'Регион',
-          text: 'Татарстан',
+        Expanded(
+          child: CustomEditableText(
+            labelText: 'Регион',
+            text: 'Татарстан',
+          ),
         ),
-        CustomEditableText(
-          labelText: 'Город',
-          text: 'Казань',
+        Expanded(
+          child: CustomEditableText(
+            labelText: 'Город',
+            text: 'Казань',
+          ),
         ),
       ],
     );

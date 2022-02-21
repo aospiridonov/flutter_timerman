@@ -52,9 +52,7 @@ class CustomEditableTextState extends State<CustomEditableText> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: !_isEditable ? _buildText() : _buildTextEdit(),
-    );
+    return !_isEditable ? _buildText() : _buildTextEdit();
   }
 
   void setEditState({required bool state}) {
