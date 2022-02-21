@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_timerman/common/common_widgets/app_bar_title.dart';
-import 'package:flutter_timerman/home/view/user_drawer.dart';
-import 'package:flutter_timerman/l10n/l10n.dart';
+import 'package:flutter_timerman/src/feature/user/widget/profile_page.dart';
+import 'package:flutter_timerman/src/common/util/l10n/l10n.dart';
 import 'package:flutter_timerman/src/feature/events/widget/events_page.dart';
 import 'package:flutter_timerman/src/feature/results/widget/results_page.dart';
 
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ),
-      drawer: const UserDrawer(),
+      drawer: const ProfilePage(),
       bottomNavigationBar: _buildBottomNavigationBar(context),
       body: _pages[_selectedIndex],
     );

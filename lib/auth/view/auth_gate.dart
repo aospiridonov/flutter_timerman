@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_timerman/auth/view/header_logo.dart';
 import 'package:flutter_timerman/home/home_page.dart';
-import 'package:flutter_timerman/l10n/l10n.dart';
+import 'package:flutter_timerman/src/common/util/l10n/l10n.dart';
 import 'package:flutterfire_ui/auth.dart';
 
 class AuthGate extends StatelessWidget {

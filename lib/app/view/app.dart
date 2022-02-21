@@ -6,10 +6,10 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_timerman/common/thema.dart';
-import 'package:flutter_timerman/auth/localization/flutter_fire_ui_ru_localizations_delegate.dart';
 import 'package:flutter_timerman/auth/view/auth_gate.dart';
-import 'package:flutter_timerman/l10n/l10n.dart';
+import 'package:flutter_timerman/common/thema.dart';
+import 'package:flutter_timerman/src/common/util/l10n/l10n.dart';
+import 'package:flutter_timerman/src/common/util/localization/flutter_fire_ui_ru_localizations_delegate.dart';
 import 'package:flutterfire_ui/i10n.dart';
 
 class App extends StatelessWidget {
