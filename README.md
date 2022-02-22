@@ -1,4 +1,4 @@
-# Flutter Timerman
+# Timerman
 
 ![coverage][coverage_badge]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
@@ -31,7 +31,7 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-_\*Flutter Timerman works on iOS, Android, and Web._
+_\*Timerman works on iOS, Android, and Web._
 
 ---
 

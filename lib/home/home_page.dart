@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
         leading: Builder(
           builder: (context) {
             return IconButton(
-              icon: const Icon(Icons.menu),
+              icon: const Icon(Icons.account_circle_rounded),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },

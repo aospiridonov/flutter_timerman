@@ -1,0 +1,7 @@
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path_android: "assets/launcher_icon/timerman-icon-android.png"
+  image_path_ios: "assets/launcher_icon/timerman-icon-ios.png"
+  adaptive_icon_background: "assets/launcher_icon/timerman_background.png"
+  adaptive_icon_foreground: "assets/launcher_icon/timerman_foreground.png"

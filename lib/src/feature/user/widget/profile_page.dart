@@ -74,7 +74,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               _buildFIO(),
               const CustomEditableText(
-                  labelText: 'Телефон', text: '+7 123 456 78 90'),
+                labelText: 'Телефон',
+                text: '+7 123 456 78 90',
+              ),
               const CustomEditableText(
                 labelText: 'Электронная почта',
                 text: 'test@test.ru',

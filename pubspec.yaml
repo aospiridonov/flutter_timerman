@@ -30,6 +30,7 @@ dependencies:
   shared_preferences: ^2.0.13
   string_validator: ^0.3.0
   email_validator: ^2.0.1
+  
 
 
 
@@ -45,6 +46,7 @@ dev_dependencies:
   mocktail: ^0.2.0
   very_good_analysis: ^2.4.0
   json_serializable: ^6.1.4
+  flutter_launcher_icons: ^0.9.2
 
 
 flutter:
@@ -54,3 +56,8 @@ flutter:
   assets:
    - assets/images/background.jpg
    - assets/images/timerman.png
+   - assets/images/event_1.jpg
+   - assets/images/event_2.jpg
+   - assets/images/event_3.jpg
+   - assets/images/event_4.jpg
+   
