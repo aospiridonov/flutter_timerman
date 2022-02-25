@@ -1,158 +1,183 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_timerman/src/feature/events/model/events_entity.dart';
 
 class EventPreviewWidget extends StatelessWidget {
-  const EventPreviewWidget({Key? key}) : super(key: key);
+  const EventPreviewWidget({
+    Key? key,
+    required this.event,
+  }) : super(key: key);
+
+  final EventsEntity event;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
-      decoration: BoxDecoration(
-        color: Colors.black,
-        image: DecorationImage(
-          colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.6),
-            BlendMode.dstATop,
-          ),
-          image: AssetImage(
-            'assets/images/event_2.jpg',
-          ), //NetworkImage("https://picsum.photos/id/237/200/300"),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
+      child: Stack(
+        children: [
+          _makeBackgroundWiget(),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    '5 марта - 5 апреля',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                Column(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: 100,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 3,
-                        horizontal: 20,
-                      ),
-                      color: Colors.blue,
-                      child: Text(
-                        'Онлайн'.toUpperCase(),
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    Container(
-                      width: 100,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 3,
-                        horizontal: 20,
-                      ),
-                      color: Colors.cyan,
-                      child: Text(
-                        'type2'.toUpperCase(),
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
+                    _makeDateWidget(),
+                    _makeEventTypesWidget(),
                   ],
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text(
+                    event.title,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Text(
+                    event.description,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.white,
+                            onSurface: Colors.black,
+                            backgroundColor: Colors.white.withOpacity(0),
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 10,
+                              horizontal: 15,
+                            ),
+                            textStyle: const TextStyle(
+                              //color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w300,
+                            ),
+                            side:
+                                const BorderSide(color: Colors.white, width: 1),
+                          ),
+                          child: const Text(
+                            'О СОБЫТИИ',
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.white,
+                            onSurface: Colors.black,
+                            backgroundColor: Colors.green,
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 10,
+                              horizontal: 15,
+                            ),
+                            textStyle: const TextStyle(
+                              //color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w300,
+                            ),
+                            //side: BorderSide(color: Colors.white, width: 2),
+                          ),
+                          child: const Text(
+                            'УЧАСТВОВАТЬ',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8.0,
-              ),
-              child: const Text(
-                'Казанский марафон 2022',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                'Description \n max two lines',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w300,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Flexible(
-                    child: OutlinedButton(
-                      onPressed: () {},
-                      style: OutlinedButton.styleFrom(
-                        primary: Colors.white,
-                        onSurface: Colors.black,
-                        backgroundColor: Colors.white.withOpacity(0),
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 15,
-                        ),
-                        textStyle: const TextStyle(
-                          //color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
-                        ),
-                        side: const BorderSide(color: Colors.white, width: 1),
-                      ),
-                      child: const Text(
-                        'О СОБЫТИИ',
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: OutlinedButton(
-                      onPressed: () {},
-                      style: OutlinedButton.styleFrom(
-                        primary: Colors.white,
-                        onSurface: Colors.black,
-                        backgroundColor: Colors.green,
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 15,
-                        ),
-                        textStyle: const TextStyle(
-                          //color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
-                        ),
-                        //side: BorderSide(color: Colors.white, width: 2),
-                      ),
-                      child: const Text(
-                        'УЧАСТВОВАТЬ',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _makeEventTypesWidget() {
+    final eventTypes = event.eventTypes;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: List<Widget>.generate(
+        eventTypes.length,
+        (index) => Container(
+          padding: const EdgeInsets.symmetric(
+            vertical: 3,
+            horizontal: 10,
+          ),
+          color: Color(eventTypes[index].color),
+          child: Text(
+            eventTypes[index].label.toUpperCase(),
+            style: const TextStyle(color: Colors.white),
+          ),
         ),
+      ),
+    );
+  }
+
+  Container _makeDateWidget() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Text(
+        event.dateLabel,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 14,
+          fontWeight: FontWeight.w300,
+        ),
+      ),
+    );
+  }
+
+  Widget _makeBackgroundWiget() {
+    return Container(
+      color: Colors.black.withOpacity(0.6),
+      child: CachedNetworkImage(
+        imageUrl: event.imageUrl,
+        imageBuilder: (context, imageProvider) => Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.5),
+                BlendMode.srcATop,
+              ),
+              image: imageProvider,
+            ),
+          ),
+        ),
+        progressIndicatorBuilder: (context, url, progress) => Center(
+          child: CircularProgressIndicator(
+            //backgroundColor: Colors.black.withOpacity(0.6),
+            color: Colors.white,
+            value: progress.progress,
+          ),
+        ),
+        //errorWidget: (context, url, error) => Container(color: Colors.black.withOpacity(0.6))
       ),
     );
   }
