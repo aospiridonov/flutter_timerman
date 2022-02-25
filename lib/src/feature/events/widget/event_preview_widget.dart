@@ -47,7 +47,7 @@ class EventPreviewWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Text(
-                    event.description,
+                    event.shortDescription,
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,
@@ -157,6 +157,7 @@ class EventPreviewWidget extends StatelessWidget {
     return Container(
       color: Colors.black.withOpacity(0.6),
       child: CachedNetworkImage(
+        maxWidthDiskCache: 300,
         imageUrl: event.imageUrl,
         imageBuilder: (context, imageProvider) => Container(
           decoration: BoxDecoration(
@@ -170,6 +171,7 @@ class EventPreviewWidget extends StatelessWidget {
             ),
           ),
         ),
+        /*
         progressIndicatorBuilder: (context, url, progress) => Center(
           child: CircularProgressIndicator(
             //backgroundColor: Colors.black.withOpacity(0.6),
@@ -177,7 +179,10 @@ class EventPreviewWidget extends StatelessWidget {
             value: progress.progress,
           ),
         ),
-        //errorWidget: (context, url, error) => Container(color: Colors.black.withOpacity(0.6))
+        errorWidget: (context, url, error) => Container(
+          color: Colors.black.withOpacity(0.6),
+        ),
+        */
       ),
     );
   }

@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
       EventsEntity(
         date: DateTime.now(),
         dateLabel: 'day month year',
-        description: '2 line description',
+        shortDescription: '2 line description',
         imageUrl: 'https://timerman.org/Files/Images/20/9B/9C7A9011.jpg',
         title: 'Event name',
         eventTypes: [
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
       EventsEntity(
         date: DateTime.now(),
         dateLabel: '5 марта - 5 апреля 2022',
-        description: 'Месяц тренировок 1 час ежедневно, бег, вело, плаванье',
+        shortDescription: 'Месяц тренировок 1 час ежедневно, бег, вело, плаванье',
         imageUrl: 'https://timerman.org/Files/Images/04/26/DSC01660.jpg',
         title: 'Hourman 3.0',
         eventTypes: [
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
       EventsEntity(
         date: DateTime.now(),
         dateLabel: '6 февраля 2022',
-        description: 'Тренировка по бегу',
+        shortDescription: 'Тренировка по бегу',
         imageUrl: 'https://timerman.org/Files/Images/DA/50/IMG_0369.jpg',
         title: 'Открытая тренировка по бегу',
         eventTypes: [

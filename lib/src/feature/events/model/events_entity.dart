@@ -11,7 +11,7 @@ class EventsEntity with _$EventsEntity {
     required DateTime date,
     required String title,
     required String imageUrl,
-    required String description,
+    required String shortDescription,
     @Default(<EventType>[]) List<EventType> eventTypes,
   }) = _EventsEntity;
 
