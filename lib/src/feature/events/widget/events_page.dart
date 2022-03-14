@@ -14,21 +14,18 @@ class EventsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          child: ListView.separated(
-            padding: const EdgeInsets.only(
-              left: 5,
-              right: 5,
-              top: 45,
-              bottom: 5,
-            ),
-            itemCount: events.length,
-            itemBuilder: (context, index) =>
-                EventPreviewWidget(event: events[index]),
-            separatorBuilder: (BuildContext context, int index) =>
-                const SizedBox(
-              height: 10,
-            ),
+        ListView.separated(
+          padding: const EdgeInsets.only(
+            left: 5,
+            right: 5,
+            top: 45,
+            bottom: 5,
+          ),
+          itemCount: events.length,
+          itemBuilder: (context, index) =>
+              EventPreviewWidget(event: events[index]),
+          separatorBuilder: (BuildContext context, int index) => const SizedBox(
+            height: 10,
           ),
         ),
         Row(
@@ -45,7 +42,7 @@ class EventsPage extends StatelessWidget {
   }) {
     return Expanded(
       child: OutlinedButton.icon(
-        icon: const Icon(Icons.ac_unit),
+        icon: icon,
         label: Text(title),
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(

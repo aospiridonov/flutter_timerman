@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_timerman/src/feature/event/widget/event_page.dart';
 import 'package:flutter_timerman/src/feature/events/model/events_entity.dart';
+import 'package:page_transition/page_transition.dart';
 
 class EventPreviewWidget extends StatelessWidget {
   const EventPreviewWidget({
@@ -31,7 +34,7 @@ class EventPreviewWidget extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Text(
                     event.title,
                     style: const TextStyle(
@@ -62,7 +65,7 @@ class EventPreviewWidget extends StatelessWidget {
                     children: [
                       Flexible(
                         child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () => _onEventPage(context),
                           style: OutlinedButton.styleFrom(
                             primary: Colors.white,
                             onSurface: Colors.black,
@@ -185,5 +188,20 @@ class EventPreviewWidget extends StatelessWidget {
         */
       ),
     );
+  }
+
+  void _onEventPage(BuildContext context) {
+    Navigator.push<void>(
+      context,
+      PageTransition(
+        type: PageTransitionType.rightToLeftWithFade,
+        child: EventPage(
+          event: event,
+        ),
+        inheritTheme: true,
+        alignment: Alignment.topCenter,
+        ctx: context,
+      ),
+    ); //const ,
   }
 }

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_timerman/common/common_widgets/app_bar_title.dart';
 import 'package:flutter_timerman/src/common/util/l10n/l10n.dart';
@@ -5,6 +6,7 @@ import 'package:flutter_timerman/src/feature/events/model/event_type.dart';
 import 'package:flutter_timerman/src/feature/events/model/events_entity.dart';
 import 'package:flutter_timerman/src/feature/events/widget/events_page.dart';
 import 'package:flutter_timerman/src/feature/results/widget/results_page.dart';
+import 'package:flutter_timerman/src/feature/user/model/user_data.dart';
 import 'package:flutter_timerman/src/feature/user/widget/profile_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,11 +35,14 @@ class _HomePageState extends State<HomePage> {
             label: 'Type event',
           ),
         ],
+        price: '200 рублей',
+        longDescription: '',
       ),
       EventsEntity(
         date: DateTime.now(),
         dateLabel: '5 марта - 5 апреля 2022',
-        shortDescription: 'Месяц тренировок 1 час ежедневно, бег, вело, плаванье',
+        shortDescription:
+            'Месяц тренировок 1 час ежедневно, бег, вело, плаванье',
         imageUrl: 'https://timerman.org/Files/Images/04/26/DSC01660.jpg',
         title: 'Hourman 3.0',
         eventTypes: [
@@ -46,6 +51,9 @@ class _HomePageState extends State<HomePage> {
             label: 'Онлайн',
           ),
         ],
+        price: '200 рублей',
+        longDescription:
+            'Длинное описание Длинное описание Длинное описание Длинное описание Длинное описание Длинное описание Длинное описание',
       ),
       EventsEntity(
         date: DateTime.now(),
@@ -63,6 +71,27 @@ class _HomePageState extends State<HomePage> {
             label: 'Участвую',
           ),
         ],
+        price: '200 рублей',
+        longDescription: '',
+      ),
+      EventsEntity(
+        date: DateTime.now(),
+        dateLabel: '6 февраля 2023',
+        shortDescription: 'Тренировка по ,tuee и не только',
+        imageUrl: 'https://timerman.org/Files/Images/DA/50/IMG_0369.jpg',
+        title: 'Открытая тренировка по бегуeeeeee',
+        eventTypes: [
+          EventType(
+            color: Colors.pink.value,
+            label: 'Беговой клуб',
+          ),
+          EventType(
+            color: const Color(0xFF2AD000).value,
+            label: 'Участвую',
+          ),
+        ],
+        price: '200 рублей',
+        longDescription: '',
       ),
     ];
 
@@ -70,7 +99,7 @@ class _HomePageState extends State<HomePage> {
       EventsPage(
         events: events,
       ),
-      const ResultsPage(),
+      ResultsPage(),
     ];
 
     super.initState();
@@ -78,6 +107,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final imageUrl = UserData.myUser.image;
+    final avatar = CircleAvatar(
+      radius: 15,
+      backgroundImage: NetworkImage(imageUrl),
+    );
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -95,7 +130,7 @@ class _HomePageState extends State<HomePage> {
         leading: Builder(
           builder: (context) {
             return IconButton(
-              icon: const Icon(Icons.account_circle_rounded),
+              icon: avatar,
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },

@@ -7,7 +7,6 @@ import 'package:flutter_timerman/common/common_widgets/app_bar_title.dart';
 import 'package:flutter_timerman/src/common/constant/widget/custom_editable_text.dart';
 import 'package:flutter_timerman/src/feature/user/model/user_data.dart';
 import 'package:flutter_timerman/src/feature/user/widget/avatar_widget.dart';
-import 'package:flutter_timerman/src/feature/user/widget/edit_name_widget.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -28,7 +27,6 @@ class _ProfilePageState extends State<ProfilePage> {
     super.dispose();
   }
 
-  @override
   Future<void> _signOut() async {
     await GoogleSignIn().signOut();
     await FacebookAuth.instance.logOut();

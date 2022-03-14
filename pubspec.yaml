@@ -7,7 +7,7 @@ environment:
   sdk: ">=2.16.0 <3.0.0"
 
 dependencies:
-  bloc: ^8.0.2
+  bloc: ^8.0.3
   cached_network_image: ^3.2.0
   cloud_firestore: ^3.1.7
   cupertino_icons: ^1.0.2
@@ -30,13 +30,11 @@ dependencies:
   shared_preferences: ^2.0.13
   string_validator: ^0.3.0
   email_validator: ^2.0.1
+  page_transition: ^2.0.5
   
 
-
-
-
 dev_dependencies:
-  bloc_test: ^9.0.2
+  bloc_test: ^9.0.3
   build_runner: ^2.1.7
   #dart_code_metrics: ^4.9.1
   #analyzer: ^3.0.0
