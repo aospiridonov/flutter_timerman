@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_timerman/src/feature/events/model/events_entity.dart';
+import 'package:flutter_timerman/src/feature/participate_event/widget/participate_event_page.dart';
+import 'package:page_transition/page_transition.dart';
 
 class EventPage extends StatelessWidget {
   const EventPage({
@@ -57,7 +59,10 @@ class EventPage extends StatelessWidget {
             const Spacer(),
             TextButton(
               onPressed: () {},
-              child: Text(
+              style: TextButton.styleFrom(
+                alignment: Alignment.centerLeft,
+              ),
+              child: const Text(
                 'Положение о соревновании',
                 style: TextStyle(
                   color: Colors.blue,
@@ -66,12 +71,9 @@ class EventPage extends StatelessWidget {
                   decoration: TextDecoration.underline,
                 ),
               ),
-              style: TextButton.styleFrom(
-                alignment: Alignment.centerLeft,
-              ),
             ),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () => _onParticipate(context),
               style: OutlinedButton.styleFrom(
                 primary: Colors.white,
                 onSurface: Colors.black,
@@ -118,5 +120,20 @@ class EventPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _onParticipate(BuildContext context) {
+    Navigator.push<void>(
+      context,
+      PageTransition(
+        type: PageTransitionType.rightToLeftWithFade,
+        child: ParticipateEventPage(
+          event: event,
+        ),
+        inheritTheme: true,
+        alignment: Alignment.topCenter,
+        ctx: context,
+      ),
+    ); //const ,
   }
 }

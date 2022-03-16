@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_timerman/src/feature/events/model/events_entity.dart';
 import 'package:flutter_timerman/src/feature/events/widget/event_preview_widget.dart';
+import 'package:page_transition/page_transition.dart';
 
 class EventsPage extends StatelessWidget {
   const EventsPage({

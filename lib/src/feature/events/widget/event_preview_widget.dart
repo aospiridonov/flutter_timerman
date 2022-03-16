@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_timerman/src/feature/event/widget/event_page.dart';
 import 'package:flutter_timerman/src/feature/events/model/events_entity.dart';
+import 'package:flutter_timerman/src/feature/participate_event/widget/participate_event_page.dart';
 import 'package:page_transition/page_transition.dart';
 
 class EventPreviewWidget extends StatelessWidget {
@@ -79,8 +80,10 @@ class EventPreviewWidget extends StatelessWidget {
                               fontSize: 16,
                               fontWeight: FontWeight.w300,
                             ),
-                            side:
-                                const BorderSide(color: Colors.white, width: 1),
+                            side: const BorderSide(
+                              color: Colors.white,
+                              width: 1.1,
+                            ),
                           ),
                           child: const Text(
                             'О СОБЫТИИ',
@@ -89,7 +92,7 @@ class EventPreviewWidget extends StatelessWidget {
                       ),
                       Flexible(
                         child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () => _onParticipate(context),
                           style: OutlinedButton.styleFrom(
                             primary: Colors.white,
                             onSurface: Colors.black,
@@ -196,6 +199,21 @@ class EventPreviewWidget extends StatelessWidget {
       PageTransition(
         type: PageTransitionType.rightToLeftWithFade,
         child: EventPage(
+          event: event,
+        ),
+        inheritTheme: true,
+        alignment: Alignment.topCenter,
+        ctx: context,
+      ),
+    ); //const ,
+  }
+
+  void _onParticipate(BuildContext context) {
+    Navigator.push<void>(
+      context,
+      PageTransition(
+        type: PageTransitionType.rightToLeftWithFade,
+        child: ParticipateEventPage(
           event: event,
         ),
         inheritTheme: true,

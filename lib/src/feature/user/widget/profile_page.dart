@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_timerman/common/common_widgets/app_bar_title.dart';
-import 'package:flutter_timerman/src/common/constant/widget/custom_editable_text.dart';
+import 'package:flutter_timerman/src/common/widget/custom_editable_text.dart';
 import 'package:flutter_timerman/src/feature/user/model/user_data.dart';
 import 'package:flutter_timerman/src/feature/user/widget/avatar_widget.dart';
 import 'package:google_sign_in/google_sign_in.dart';
