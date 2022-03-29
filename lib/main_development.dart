@@ -5,14 +5,18 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:flutter/material.dart';
-import 'package:flutter_timerman/app/app.dart';
-import 'package:flutter_timerman/bootstrap.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_timerman/bootstrap.dart';
+import 'package:flutter_timerman/src/core/app.dart';
+import 'package:flutter_timerman/src/features/auth/auth.dart';
 //import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  bootstrap(() => const App());
+  final authRepo = AuthFirebaseRepository();
+  bootstrap(
+    () => App(authRepository: authRepo),
+  );
 }

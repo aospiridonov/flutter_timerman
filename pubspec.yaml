@@ -31,7 +31,10 @@ dependencies:
   string_validator: ^0.3.0
   email_validator: ^2.0.1
   page_transition: ^2.0.5
-  
+  equatable: ^2.0.3
+  flow_builder: ^0.0.6
+  rxdart: ^0.27.3
+#background_location_tracker
 
 dev_dependencies:
   bloc_test: ^9.0.3

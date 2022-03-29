@@ -1,0 +1,34 @@
+{
+    "@@locale": "en",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    },
+
+    "loading": "Loading...",
+
+
+    "welcome_sign_in": "Welcome to FlutterFire UI! Please sign in to continue.",
+    "welcome_register" : "Welcome to FlutterFire UI! Please create an account to continue",
+    "sign_in_term" :"By signing in, you agree to our terms and conditions.",
+    "logout" : "Logout",
+    "user_not_found": "User nothing found...",
+
+
+    "first_name": "First name",
+    "middle_name": "Middle name",
+    "last_name": "Last name",
+    "phone": "Phone",
+    "email": "E-mail",
+
+    "country": "Country",
+    "region": "Region",
+    "city": "City",
+
+
+    "events_title" : "Events",
+    "event_title" : "Event",
+    "about_event" : " About the event",
+    "results_title" : "Results",
+    "my_result_title" : "My results"
+}
