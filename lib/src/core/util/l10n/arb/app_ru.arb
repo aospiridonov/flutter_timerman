@@ -17,8 +17,9 @@
     "first_name": "Имя",
     "middle_name": "Отчество",
     "last_name": "Фамилия",
-    "phone": "Телефон",
+    "phone_number": "Телефон",
     "email": "Электронная почта",
+    "birth_date": "Дата рождения",
 
     "country": "Страна",
     "region": "Регион",

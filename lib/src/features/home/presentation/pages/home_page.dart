@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     _pages = [
+      const ProfilePage(),
       const EventsPage(),
       ResultsPage(),
     ];
@@ -93,6 +94,12 @@ class _HomePageState extends State<HomePage> {
       currentIndex: _selectedIndex,
       onTap: _selectPage,
       items: [
+        BottomNavigationBarItem(
+          icon: const Icon(
+            Icons.home,
+          ),
+          label: l10n.events_title,
+        ),
         BottomNavigationBarItem(
           icon: const Icon(
             Icons.event,

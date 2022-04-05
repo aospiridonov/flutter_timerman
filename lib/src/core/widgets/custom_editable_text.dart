@@ -21,7 +21,7 @@ class CustomEditableText extends StatefulWidget {
 class CustomEditableTextState extends State<CustomEditableText> {
   bool _isEditable = true;
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   final FocusNode _focusNode = FocusNode();
 

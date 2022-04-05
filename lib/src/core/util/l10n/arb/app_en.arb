@@ -18,8 +18,9 @@
     "first_name": "First name",
     "middle_name": "Middle name",
     "last_name": "Last name",
-    "phone": "Phone",
+    "phone_number": "Phone number",
     "email": "E-mail",
+    "birth_date": "Date of Birth",
 
     "country": "Country",
     "region": "Region",

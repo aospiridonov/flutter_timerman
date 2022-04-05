@@ -102,8 +102,25 @@ class ProfileView extends StatelessWidget {
                       ),
                     ],
                   ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: CustomDatePicker(
+                          labelText: l10n.birth_date,
+                          selectedDate: DateTime.now(),
+                        ),
+                      ),
+                      Expanded(
+                        child: CustomDropdown(
+                          labelText: l10n.birth_date,
+                        ),
+                      ),
+                    ],
+                  ),
                   CustomEditableText(
-                    labelText: l10n.phone,
+                    labelText: l10n.phone_number,
                     text: user.phone,
                   ),
                   CustomEditableText(
