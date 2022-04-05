@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_timerman/src/features/events/data/repository/firestore_events_repository.dart';
 import 'package:flutter_timerman/src/features/events/domain/bloc/events_bloc.dart';
 import '../widgets/widgets.dart';
 import '../../domain/models/models.dart';
@@ -13,6 +14,8 @@ class EventsPage extends StatelessWidget {
     return Stack(
       children: [
         BlocBuilder<EventsBloc, EventsState>(
+          bloc: EventsBloc(repository: FirestoreEventsRepository())
+            ..add(EventsEventFetch(filter: Filter())),
           builder: (context, state) {
             if (state is EventsStateLoading) {
               return const Center(

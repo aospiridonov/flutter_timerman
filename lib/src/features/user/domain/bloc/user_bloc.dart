@@ -9,6 +9,8 @@ part 'user_bloc.g.dart';
 part 'user_event.dart';
 part 'user_state.dart';
 
+//TODO: add lisener for change user stream
+
 class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc({required UserRepository repository})
       : _repository = repository,
@@ -24,8 +26,14 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   ) async {
     emit(const UserState.loading());
     try {
-      _repository.getUser(userId: event.userId);
-      emit(UserState.loaded(user: User.guest()));
+      //_repository.getUser(userId: event.userId);
+      //emit(UserState.loaded(user: User.guest()));
+      await emit.forEach<User>(
+        _repository.getUser(userId: event.userId),
+        onData: (user) {
+          return UserState.loaded(user: user);
+        },
+      );
     } catch (__) {
       emit(const UserState.error());
       rethrow;
