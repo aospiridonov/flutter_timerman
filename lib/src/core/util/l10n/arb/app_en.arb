@@ -21,6 +21,10 @@
     "phone_number": "Phone number",
     "email": "E-mail",
     "birth_date": "Date of Birth",
+    "sex": "Sex",
+    "sex_male": "Male",
+    "sex_female": "Female",
+    "please_select_value": "Please select value",
 
     "country": "Country",
     "region": "Region",

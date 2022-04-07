@@ -17,6 +17,12 @@ class ProfileView extends StatelessWidget {
     final l10n = context.l10n;
     final state = context.watch<UserBloc>().state;
 
+    final sexMap = <String, String>{
+      //'': '',
+      'm': l10n.sex_male,
+      'f': l10n.sex_female,
+    };
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -114,7 +120,10 @@ class ProfileView extends StatelessWidget {
                       ),
                       Expanded(
                         child: CustomDropdown(
-                          labelText: l10n.birth_date,
+                          hintText: l10n.please_select_value,
+                          labelText: l10n.sex,
+                          value: sexMap[user.sex],
+                          items: sexMap.values.toList(),
                         ),
                       ),
                     ],

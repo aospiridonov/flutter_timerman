@@ -29,45 +29,48 @@ class CustomDatePickerState extends State<CustomDatePicker> {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => _buildDatePicker(context),
-      child: Column(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            child: Text(
-              labelText,
-              softWrap: false,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.normal,
-                color: Colors.grey,
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Container(
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-            child: SizedBox(
+    return Container(
+      height: 51,
+      child: TextButton(
+        onPressed: () => _buildDatePicker(context),
+        child: Column(
+          children: [
+            SizedBox(
               width: double.infinity,
               child: Text(
-                text,
+                labelText,
+                softWrap: false,
                 style: const TextStyle(
-                  fontSize: 14,
+                  fontSize: 12,
                   fontWeight: FontWeight.normal,
-                  color: Colors.black,
+                  color: Colors.grey,
                 ),
                 textAlign: TextAlign.left,
               ),
             ),
-          ),
-        ],
+            Container(
+              decoration: const BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  text,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

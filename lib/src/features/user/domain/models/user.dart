@@ -17,6 +17,7 @@ class User with _$User {
     required String lastName,
     required String phone,
     required String birthDay,
+    required String sex,
     @Default('') String country,
     @Default('') String region,
     @Default('') String city,
@@ -31,6 +32,7 @@ class User with _$User {
         lastName: 'lastName',
         phone: 'phone',
         birthDay: 'birthDay',
+        sex: 'm',
       );
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

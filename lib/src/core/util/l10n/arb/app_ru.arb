@@ -20,6 +20,10 @@
     "phone_number": "Телефон",
     "email": "Электронная почта",
     "birth_date": "Дата рождения",
+    "sex": "Пол",
+    "sex_male": "Мужской",
+    "sex_female": "Женский",
+    "please_select_value": "Пожалуйста выберите значение",
 
     "country": "Страна",
     "region": "Регион",
