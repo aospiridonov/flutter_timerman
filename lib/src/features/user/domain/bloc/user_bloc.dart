@@ -15,19 +15,18 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc({required UserRepository repository})
       : _repository = repository,
         super(const UserState.loading()) {
-    on<UserEventGetUser>(_onGetUser);
+    on<UserEventGet>(_onGetUser);
+    on<UserEventSave>(_onSaveUser);
   }
 
   final UserRepository _repository;
 
   Future<void> _onGetUser(
-    UserEventGetUser event,
+    UserEventGet event,
     Emitter<UserState> emit,
   ) async {
     emit(const UserState.loading());
     try {
-      //_repository.getUser(userId: event.userId);
-      //emit(UserState.loaded(user: User.guest()));
       await emit.forEach<User>(
         _repository.getUser(userId: event.userId),
         onData: (user) {
@@ -38,6 +37,22 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       emit(const UserState.error());
       rethrow;
     }
+  }
+
+  Future<void> _onSaveUser(
+    UserEventSave event,
+    Emitter<UserState> emit,
+  ) async {
+    emit(const UserState.loading());
+    try {
+      await _repository.updateUser(event.user);
+      //
+    } catch (__) {
+      emit(const UserState.error());
+      rethrow;
+    }
+
+    //
   }
 
   @override

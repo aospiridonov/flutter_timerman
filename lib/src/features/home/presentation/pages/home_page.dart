@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
     return BlocProvider(
       create: (_) => UserBloc(
         repository: FirestoreUserRepository(),
-      )..add(UserEventGetUser(userId: userId)),
+      )..add(UserEvent.get(userId: userId)),
       child: const HomeView(),
     );
   }

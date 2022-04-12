@@ -7,12 +7,14 @@ class CustomEditableText extends StatefulWidget {
     this.text = '',
     this.hintText = '',
     this.isEdit = false,
+    this.onChanged,
   }) : super(key: key);
 
   final String labelText;
   final String hintText;
   final String text;
   final bool isEdit;
+  final ValueChanged<String>? onChanged;
 
   @override
   State<CustomEditableText> createState() => CustomEditableTextState();
@@ -34,8 +36,9 @@ class CustomEditableTextState extends State<CustomEditableText> {
     _focusNode.addListener(() {
       print(_focusNode.hasFocus);
       if (!_focusNode.hasFocus) {
-        setEditState(state: false);
+        setEditState(state: false); //TODO: hack
         //FocusScope.of(context).unfocus();
+        widget.onChanged!(text);
       }
     });
   }
@@ -60,6 +63,7 @@ class CustomEditableTextState extends State<CustomEditableText> {
       _isEditable = state;
       if (!_isEditable) {
         _focusNode.unfocus(); //is important
+
       }
     });
   }

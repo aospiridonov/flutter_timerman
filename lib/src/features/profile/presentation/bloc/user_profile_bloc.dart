@@ -15,7 +15,9 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
     on<UserProfileEventUpdate>(_onUpdate);
   }
 
-  User _user = User.guest();
+  User _user = User.empty();
+
+  User get user => _user;
 
   Future<void> _onInit(
     UserProfileEventInit event,
