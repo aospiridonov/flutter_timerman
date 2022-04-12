@@ -29,7 +29,8 @@ class ProfilePage extends StatelessWidget {
       ),
       loaded: (user) {
         return BlocProvider(
-          create: (_) =>
+          //lazy: false,
+          create: (BuildContext context) =>
               UserProfileBloc()..add(UserProfileEvent.init(user: user)),
           child:
               const ProfileView(), //TODO: add route to profile or registration

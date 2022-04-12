@@ -28,23 +28,13 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final state = context.watch<UserProfileBloc>().state;
-    //final state = context.watch<UserProfileBloc>().state;
 
     final sexMap = <String, String>{
-      //'': '',
+      '': '',
       'm': l10n.sex_male,
       'f': l10n.sex_female,
     };
-    /*
-    state.when(
 
-        modified: (User user) {},
-        origin: (User user) {},
-        undefined: () {
-          return null;
-        },
-      ),
-      */
     if (state is UserProfileStateUndefined) {
       return const Center();
     } else {
@@ -146,6 +136,14 @@ class ProfileView extends StatelessWidget {
                         labelText: l10n.sex,
                         value: sexMap[user.sex],
                         items: sexMap.values.toList(),
+                        onChanged: (value) {
+                          final key =
+                              sexMap.keys.firstWhere((k) => sexMap[k] == value);
+                          _changeUser(
+                            context: context,
+                            user: user.copyWith(sex: key),
+                          );
+                        },
                       ),
                     ),
                   ],
@@ -176,32 +174,32 @@ class ProfileView extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomEditableText(
-                        labelText: 'Страна',
-                        text: 'Россия',
+                        labelText: l10n.country,
+                        text: user.country,
                         onChanged: (value) {
                           _changeUser(
                             context: context,
-                            user: user.copyWith(email: value),
+                            user: user.copyWith(country: value),
                           );
                         },
                       ),
                     ),
                     Expanded(
                       child: CustomEditableText(
-                        labelText: 'Регион',
-                        text: 'Татарстан',
+                        labelText: l10n.region,
+                        text: user.region,
                         onChanged: (value) {
                           _changeUser(
                             context: context,
-                            user: user.copyWith(email: value),
+                            user: user.copyWith(region: value),
                           );
                         },
                       ),
                     ),
                     Expanded(
                       child: CustomEditableText(
-                        labelText: 'Город',
-                        text: 'Казань',
+                        labelText: l10n.country,
+                        text: user.city,
                         onChanged: (value) {
                           _changeUser(
                             context: context,

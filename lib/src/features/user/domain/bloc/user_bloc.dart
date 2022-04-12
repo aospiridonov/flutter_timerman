@@ -46,6 +46,12 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     emit(const UserState.loading());
     try {
       await _repository.updateUser(event.user);
+      await emit.forEach<User>(
+        _repository.getUser(userId: event.user.id),
+        onData: (user) {
+          return UserState.loaded(user: user);
+        },
+      );
       //
     } catch (__) {
       emit(const UserState.error());

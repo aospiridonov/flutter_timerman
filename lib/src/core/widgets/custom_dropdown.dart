@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class CustomDropdown extends StatefulWidget {
   CustomDropdown({
@@ -9,6 +8,7 @@ class CustomDropdown extends StatefulWidget {
     required this.items,
     this.hintText = '',
     this.isEditable = true,
+    this.onChanged,
   }) : super(key: key);
 
   final String labelText;
@@ -16,6 +16,7 @@ class CustomDropdown extends StatefulWidget {
   final bool isEditable;
   final List<String> items;
   String? value;
+  final ValueChanged<String>? onChanged;
 
   @override
   State<CustomDropdown> createState() => CustomDropdownState();
@@ -36,18 +37,15 @@ class CustomDropdownState extends State<CustomDropdown> {
           SizedBox(
             //height: 25,
             width: double.infinity,
-            child: Container(
-              //color: Colors.red,
-              child: Text(
-                labelText,
-                softWrap: false,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.grey,
-                ),
-                textAlign: TextAlign.left,
+            child: Text(
+              labelText,
+              softWrap: false,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.normal,
+                color: Colors.grey,
               ),
+              textAlign: TextAlign.left,
             ),
           ),
           Container(
@@ -79,6 +77,7 @@ class CustomDropdownState extends State<CustomDropdown> {
                   onChanged: (String? newValue) {
                     setState(() {
                       widget.value = newValue!;
+                      widget.onChanged!(widget.value ?? '');
                     });
                   },
                   items: widget.items.map<DropdownMenuItem<String>>(
