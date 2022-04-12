@@ -9,5 +9,6 @@ List<Page> onGenerateAppViewPages(AppStatus state, List<Page<dynamic>> pages) {
       return [HomePage.page()];
     case AppStatus.unauthenticated:
       return [AuthPage.page()];
+    //TODO: add lending page or splash screen
   }
 }

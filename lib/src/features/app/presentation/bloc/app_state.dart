@@ -5,10 +5,19 @@ enum AppStatus {
   unauthenticated,
 }
 
+enum AppUserType {
+  defaulted,
+  moderator,
+  administrator,
+  deleted,
+  banned,
+}
+
 class AppState extends Equatable {
   const AppState._({
     required this.status,
     this.user = User.empty,
+    this.userType = AppUserType.defaulted,
   });
 
   const AppState.authenticated(User user)
@@ -18,6 +27,7 @@ class AppState extends Equatable {
 
   final AppStatus status;
   final User user;
+  final AppUserType userType;
 
   @override
   List<Object?> get props => [status, user];

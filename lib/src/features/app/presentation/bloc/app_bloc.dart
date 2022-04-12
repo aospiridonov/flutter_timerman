@@ -2,9 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-
-import 'package:flutter_timerman/src/features/auth/domain/repository/auth_repository.dart';
 import 'package:flutter_timerman/src/features/auth/domain/models/models.dart';
+import 'package:flutter_timerman/src/features/auth/domain/repository/auth_repository.dart';
 
 part 'app_event.dart';
 part 'app_state.dart';

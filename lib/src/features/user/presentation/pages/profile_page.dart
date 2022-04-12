@@ -19,7 +19,7 @@ class ProfilePage extends StatelessWidget {
       create: (_) => UserBloc(
         repository: FirestoreUserRepository(),
       )..add(UserEventGetUser(userId: userId)),
-      child: const ProfileView(),
+      child: const ProfileView(), //TODO: add route to profile or registration
     );
   }
 }
