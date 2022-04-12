@@ -14,12 +14,15 @@ class AvatarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const color = Color.fromRGBO(64, 105, 225, 1);
+    const color = Color(0xff8F8F8F);
+
     return Center(
       child: Stack(
         children: [
           _buildImage(color),
           Positioned(
+            right: 0,
+            bottom: 0,
             child: _buildEditIcon(color),
           ),
         ],
@@ -35,32 +38,32 @@ class AvatarWidget extends StatelessWidget {
           );
 
     return CircleAvatar(
-      radius: 75,
-      backgroundColor: color,
+      radius: 62,
+      backgroundColor: const Color(0xffF2F2F2),
       child: CircleAvatar(
         backgroundImage: image as ImageProvider,
-        radius: 70,
+        radius: 60,
       ),
     );
   }
 
-  Widget _buildEditIcon(Color color) => _buildCircle(
-        all: 8,
-        child: Icon(
-          Icons.edit,
-          color: color,
-          size: 20,
+  Widget _buildEditIcon(Color iconColor) {
+    return CircleAvatar(
+      radius: 17,
+      backgroundColor: const Color(0xffF2F2F2),
+      child: CircleAvatar(
+        radius: 16,
+        backgroundColor: const Color(0xFFF9F9F9),
+        child: IconButton(
+          padding: EdgeInsets.zero,
+          icon: const Icon(Icons.add_rounded),
+          color: iconColor,
+          iconSize: 32,
+          onPressed: () {
+            print('add image');
+          },
         ),
-      );
-  Widget _buildCircle({
-    required Widget child,
-    required double all,
-  }) =>
-      ClipOval(
-        child: Container(
-          padding: EdgeInsets.all(all),
-          color: Colors.white,
-          child: child,
-        ),
-      );
+      ),
+    );
+  }
 }

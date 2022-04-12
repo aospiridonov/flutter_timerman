@@ -35,5 +35,16 @@ class User with _$User {
         sex: 'm',
       );
 
+  factory User.empty() => const User(
+        email: '',
+        imageUrl: '',
+        firstName: '',
+        middleName: '',
+        lastName: '',
+        phone: '',
+        birthDay: '',
+        sex: '',
+      );
+
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }
