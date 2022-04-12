@@ -4,9 +4,9 @@ import 'package:flutter_timerman/src/core/util.dart';
 import 'package:flutter_timerman/src/core/widgets/widgets.dart';
 import 'package:flutter_timerman/src/features/app/app.dart';
 import 'package:flutter_timerman/src/features/events/presentation/pages/events_page.dart';
+import 'package:flutter_timerman/src/features/profile/presentation/pages/profile_page.dart';
 import 'package:flutter_timerman/src/features/results/widget/results_page.dart';
 import 'package:flutter_timerman/src/features/user/domain/bloc/user_bloc.dart';
-import 'package:flutter_timerman/src/features/user/presentation/pages/profile_page.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);

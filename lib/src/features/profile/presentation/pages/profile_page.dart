@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_timerman/src/features/app/app.dart';
 import 'package:flutter_timerman/src/features/user/data/repository/firestore_user_repository.dart';
 import 'package:flutter_timerman/src/features/user/domain/bloc/user_bloc.dart';
-import 'package:flutter_timerman/src/features/user/presentation/widgets/widgets.dart';
+import 'package:flutter_timerman/src/features/profile/presentation/widgets/widgets.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
