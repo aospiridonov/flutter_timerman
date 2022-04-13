@@ -34,6 +34,7 @@ dependencies:
   equatable: ^2.0.3
   flow_builder: ^0.0.6
   rxdart: ^0.27.3
+  image_picker: ^0.8.5
 #background_location_tracker
 
 dev_dependencies:

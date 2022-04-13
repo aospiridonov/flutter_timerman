@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_timerman/src/core/pages/pages.dart';
 import 'package:flutter_timerman/src/core/util.dart';
 import 'package:flutter_timerman/src/core/widgets/widgets.dart';
 import 'package:flutter_timerman/src/features/app/app.dart';
 import 'package:flutter_timerman/src/features/profile/presentation/bloc/bloc.dart';
 import 'package:flutter_timerman/src/features/user/domain/bloc/user_bloc.dart';
 import 'package:flutter_timerman/src/features/user/user.dart';
+import 'package:page_transition/page_transition.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -80,7 +82,17 @@ class ProfileView extends StatelessWidget {
                 children: [
                   DrawerHeader(
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push<void>(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.rightToLeftWithFade,
+                            child: EditImagePage(
+                              imageUrl: user.imageUrl,
+                            ),
+                          ),
+                        );
+                      },
                       child: AvatarWidget(
                         imagePath: user.imageUrl,
                         onPressed: () {},
