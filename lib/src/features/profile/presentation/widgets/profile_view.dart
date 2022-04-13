@@ -75,6 +75,7 @@ class ProfileView extends StatelessWidget {
             child: Container(
               color: Colors.white70.withOpacity(0.9),
               child: ListView(
+                //TODO: refactoring to Columns
                 padding: EdgeInsets.zero,
                 children: [
                   DrawerHeader(
