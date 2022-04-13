@@ -45,192 +45,201 @@ class ProfileView extends StatelessWidget {
       if (state is UserProfileStateOrigin) {
         user = state.user;
       }
-      return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const AppBarTitle(),
-          actions: [
-            IconButton(
-              onPressed: () {
-                Scaffold.of(context).openEndDrawer();
-              },
-              icon: const Icon(
-                Icons.close,
+      return BlocListener<UserBloc, UserState>(
+        listener: (context, state) {
+          if (state is UserStateLoaded) {
+            context
+                .read<UserProfileBloc>()
+                .add(UserProfileEvent.init(user: state.user));
+          }
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: const AppBarTitle(),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                icon: const Icon(
+                  Icons.close,
+                ),
+                //color: Colors.black,
               ),
-              //color: Colors.black,
-            ),
-          ],
-          automaticallyImplyLeading: false,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Container(
-            color: Colors.white70.withOpacity(0.9),
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                DrawerHeader(
-                  child: InkWell(
-                    onTap: () {},
-                    child: AvatarWidget(
-                      imagePath: user.imageUrl,
-                      onPressed: () {},
+            ],
+            automaticallyImplyLeading: false,
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Container(
+              color: Colors.white70.withOpacity(0.9),
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  DrawerHeader(
+                    child: InkWell(
+                      onTap: () {},
+                      child: AvatarWidget(
+                        imagePath: user.imageUrl,
+                        onPressed: () {},
+                      ),
                     ),
                   ),
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: CustomEditableText(
-                        labelText: l10n.last_name,
-                        text: user.lastName,
-                        onChanged: (value) {
-                          _changeUser(
-                            context: context,
-                            user: user.copyWith(lastName: value),
-                          );
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: CustomEditableText(
+                          labelText: l10n.last_name,
+                          text: user.lastName,
+                          onChanged: (value) {
+                            _changeUser(
+                              context: context,
+                              user: user.copyWith(lastName: value),
+                            );
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: CustomEditableText(
+                          labelText: l10n.first_name,
+                          text: user.firstName,
+                          onChanged: (value) {
+                            _changeUser(
+                              context: context,
+                              user: user.copyWith(firstName: value),
+                            );
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: CustomEditableText(
+                          labelText: l10n.middle_name,
+                          text: user.middleName,
+                          onChanged: (value) {
+                            _changeUser(
+                              context: context,
+                              user: user.copyWith(middleName: value),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: CustomDatePicker(
+                          labelText: l10n.birth_date,
+                          selectedDate: DateTime.now(),
+                        ),
+                      ),
+                      Expanded(
+                        child: CustomDropdown(
+                          hintText: l10n.please_select_value,
+                          labelText: l10n.sex,
+                          value: sexMap[user.sex],
+                          items: sexMap.values.toList(),
+                          onChanged: (value) {
+                            final key = sexMap.keys
+                                .firstWhere((k) => sexMap[k] == value);
+                            _changeUser(
+                              context: context,
+                              user: user.copyWith(sex: key),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  CustomEditableText(
+                    labelText: l10n.phone_number,
+                    text: user.phone,
+                    onChanged: (value) {
+                      _changeUser(
+                        context: context,
+                        user: user.copyWith(phone: value),
+                      );
+                    },
+                  ),
+                  CustomEditableText(
+                    labelText: l10n.email,
+                    text: user.email,
+                    onChanged: (value) {
+                      _changeUser(
+                        context: context,
+                        user: user.copyWith(email: value),
+                      );
+                    },
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: CustomEditableText(
+                          labelText: l10n.country,
+                          text: user.country,
+                          onChanged: (value) {
+                            _changeUser(
+                              context: context,
+                              user: user.copyWith(country: value),
+                            );
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: CustomEditableText(
+                          labelText: l10n.region,
+                          text: user.region,
+                          onChanged: (value) {
+                            _changeUser(
+                              context: context,
+                              user: user.copyWith(region: value),
+                            );
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: CustomEditableText(
+                          labelText: l10n.city,
+                          text: user.city,
+                          onChanged: (value) {
+                            _changeUser(
+                              context: context,
+                              user: user.copyWith(city: value),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  if (state is UserProfileStateModified)
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _save(context: context, user: user);
                         },
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.blue, // background
+                        ),
+                        child: Text(l10n.save),
                       ),
                     ),
-                    Expanded(
-                      child: CustomEditableText(
-                        labelText: l10n.first_name,
-                        text: user.firstName,
-                        onChanged: (value) {
-                          _changeUser(
-                            context: context,
-                            user: user.copyWith(firstName: value),
-                          );
-                        },
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomEditableText(
-                        labelText: l10n.middle_name,
-                        text: user.middleName,
-                        onChanged: (value) {
-                          _changeUser(
-                            context: context,
-                            user: user.copyWith(middleName: value),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: CustomDatePicker(
-                        labelText: l10n.birth_date,
-                        selectedDate: DateTime.now(),
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomDropdown(
-                        hintText: l10n.please_select_value,
-                        labelText: l10n.sex,
-                        value: sexMap[user.sex],
-                        items: sexMap.values.toList(),
-                        onChanged: (value) {
-                          final key =
-                              sexMap.keys.firstWhere((k) => sexMap[k] == value);
-                          _changeUser(
-                            context: context,
-                            user: user.copyWith(sex: key),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                CustomEditableText(
-                  labelText: l10n.phone_number,
-                  text: user.phone,
-                  onChanged: (value) {
-                    _changeUser(
-                      context: context,
-                      user: user.copyWith(phone: value),
-                    );
-                  },
-                ),
-                CustomEditableText(
-                  labelText: l10n.email,
-                  text: user.email,
-                  onChanged: (value) {
-                    _changeUser(
-                      context: context,
-                      user: user.copyWith(email: value),
-                    );
-                  },
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: CustomEditableText(
-                        labelText: l10n.country,
-                        text: user.country,
-                        onChanged: (value) {
-                          _changeUser(
-                            context: context,
-                            user: user.copyWith(country: value),
-                          );
-                        },
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomEditableText(
-                        labelText: l10n.region,
-                        text: user.region,
-                        onChanged: (value) {
-                          _changeUser(
-                            context: context,
-                            user: user.copyWith(region: value),
-                          );
-                        },
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomEditableText(
-                        labelText: l10n.country,
-                        text: user.city,
-                        onChanged: (value) {
-                          _changeUser(
-                            context: context,
-                            user: user.copyWith(email: value),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                if (state is UserProfileStateModified)
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: ElevatedButton(
-                      onPressed: () {
-                        _save(context: context, user: user);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.blue, // background
-                      ),
-                      child: Text(l10n.save),
+                      onPressed: () => _signOut(context),
+                      child: Text(l10n.logout),
                     ),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: ElevatedButton(
-                    onPressed: () => _signOut(context),
-                    child: Text(l10n.logout),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

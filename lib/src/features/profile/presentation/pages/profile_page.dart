@@ -12,6 +12,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: refactoring (change cant rebuild)
     final l10n = context.l10n;
     final state = context.watch<UserBloc>().state;
     //final userId = user.id;
