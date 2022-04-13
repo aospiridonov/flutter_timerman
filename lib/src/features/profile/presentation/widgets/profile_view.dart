@@ -33,8 +33,8 @@ class ProfileView extends StatelessWidget {
       '': '',
       'm': l10n.sex_male,
       'f': l10n.sex_female,
-    };
-
+    }; //TODO: refactoring switch to app constants
+    //TODO: refactoring states to multiply bloc's
     if (state is UserProfileStateUndefined) {
       return const Center();
     } else {
