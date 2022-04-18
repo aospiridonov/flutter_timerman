@@ -82,20 +82,16 @@ class ProfileView extends StatelessWidget {
                 children: [
                   DrawerHeader(
                     child: InkWell(
-                      onTap: () {
-                        Navigator.push<void>(
-                          context,
-                          PageTransition(
-                            type: PageTransitionType.rightToLeftWithFade,
-                            child: EditImagePage(
-                              imageUrl: user.imageUrl,
-                            ),
-                          ),
-                        );
-                      },
+                      onTap: () => _onEditImagePage(
+                        context: context,
+                        user: user,
+                      ),
                       child: AvatarWidget(
                         imagePath: user.imageUrl,
-                        onPressed: () {},
+                        onPressed: () => _onEditImagePage(
+                          context: context,
+                          user: user,
+                        ),
                       ),
                     ),
                   ),
@@ -258,5 +254,26 @@ class ProfileView extends StatelessWidget {
         ),
       );
     }
+  }
+
+  void _onEditImagePage({
+    required BuildContext context,
+    required User user,
+  }) {
+    Navigator.push<void>(
+      context,
+      PageTransition(
+        type: PageTransitionType.topToBottom,
+        child: EditImagePage(
+          imageUrl: user.imageUrl,
+          onChanged: (value) {
+            _changeUser(
+              context: context,
+              user: user.copyWith(imageUrl: value),
+            );
+          },
+        ),
+      ),
+    );
   }
 }

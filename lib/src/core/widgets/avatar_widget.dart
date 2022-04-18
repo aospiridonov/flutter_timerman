@@ -59,9 +59,7 @@ class AvatarWidget extends StatelessWidget {
           icon: const Icon(Icons.add_rounded),
           color: iconColor,
           iconSize: 32,
-          onPressed: () {
-            print('add image');
-          },
+          onPressed: onPressed,
         ),
       ),
     );
