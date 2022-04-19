@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_timerman/src/core/util.dart';
 import 'package:flutter_timerman/src/core/widgets/widgets.dart';
 import 'package:flutter_timerman/src/features/app/app.dart';
+import 'package:flutter_timerman/src/features/app/domain/bloc/user_access_bloc.dart';
+import 'package:flutter_timerman/src/features/app/domain/models/user_access.dart';
 import 'package:flutter_timerman/src/features/events/presentation/pages/events_page.dart';
 import 'package:flutter_timerman/src/features/profile/presentation/pages/profile_page.dart';
 import 'package:flutter_timerman/src/features/results/widget/results_page.dart';
@@ -26,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     _pages = [
-      const ProfilePage(),
+      //const EventPage(),
       const EventsPage(),
       ResultsPage(),
     ];
@@ -37,13 +39,32 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     final appState = context.select((AppBloc bloc) => bloc.state);
+    final access = context.select((UserAccessBloc bloc) => bloc.state.access);
     final state = context.watch<UserBloc>().state;
 
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: const AppBarTitle(),
-        actions: _buildActions(),
+        actions: [
+          const IconButton(
+            onPressed: null,
+            icon: Icon(
+              Icons.notifications_none,
+              //color: Colors.grey,
+            ),
+            enableFeedback: false,
+          ),
+          if (access == UserAccess.administrator)
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.add,
+                //color: Colors.grey,
+              ),
+              enableFeedback: false,
+            ),
+        ],
         leading: state.when(
           loading: () =>
               const CircularProgressIndicator.adaptive(strokeWidth: 2),
@@ -73,19 +94,6 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  List<Widget> _buildActions() {
-    return const [
-      IconButton(
-        onPressed: null,
-        icon: Icon(
-          Icons.notifications_none,
-          //color: Colors.grey,
-        ),
-        enableFeedback: false,
-      ),
-    ];
-  }
-
   void _selectPage(int index) {
     //Add BLOC
     setState(() {
@@ -99,12 +107,14 @@ class _HomeViewState extends State<HomeView> {
       currentIndex: _selectedIndex,
       onTap: _selectPage,
       items: [
+        /*
         BottomNavigationBarItem(
           icon: const Icon(
             Icons.home,
           ),
-          label: l10n.events_title,
+          label: 'Event',
         ),
+        */
         BottomNavigationBarItem(
           icon: const Icon(
             Icons.event,

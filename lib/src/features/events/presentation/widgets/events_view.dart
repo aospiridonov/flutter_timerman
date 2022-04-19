@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../../domain/models/models.dart';
 import 'event_widget.dart';
 
-class EventsWidget extends StatelessWidget {
-  const EventsWidget({Key? key, required this.events}) : super(key: key);
+class EventsView extends StatelessWidget {
+  const EventsView({Key? key, required this.events}) : super(key: key);
 
   final List<Event> events;
 
@@ -22,6 +22,5 @@ class EventsWidget extends StatelessWidget {
         height: 10,
       ),
     );
-    ;
   }
 }

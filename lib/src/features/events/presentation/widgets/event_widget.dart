@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_timerman/src/features/event/presentation/pages/event_page.dart';
 import '../../domain/models/models.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -191,7 +192,7 @@ class EventWidget extends StatelessWidget {
   }
 
   void _onEventPage(BuildContext context) {
-    /*Navigator.push<void>(
+    Navigator.push<void>(
       context,
       PageTransition(
         type: PageTransitionType.rightToLeftWithFade,
@@ -203,7 +204,6 @@ class EventWidget extends StatelessWidget {
         ctx: context,
       ),
     ); //const ,
-    */
   }
 
   void _onParticipate(BuildContext context) {

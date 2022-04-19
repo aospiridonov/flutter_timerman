@@ -25,7 +25,7 @@ class EventsPage extends StatelessWidget {
               return Container();
             }
             // is EventsStateSuccess
-            return EventsWidget(events: state.events);
+            return EventsView(events: state.events);
           },
         ),
         Row(

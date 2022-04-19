@@ -22,5 +22,15 @@ class Event with _$Event {
     @Default(<Type>[]) List<Type> types,
   }) = _Event;
 
+  factory Event.empty() => Event(
+        title: '',
+        date: DateTime.now(),
+        dateLabel: '',
+        imageUrl: '',
+        longDescription: '',
+        price: '',
+        shortDescription: '',
+      );
+
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
 }

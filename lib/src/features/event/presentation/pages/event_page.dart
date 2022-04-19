@@ -17,7 +17,13 @@ class EventPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('О событии'),
+        title: const Text(
+          'Соревнование',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+          ),
+        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(8),
