@@ -1,6 +1,11 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-typedef Builder<T> = T Function(Map<String, dynamic> data, String documentId);
+typedef Builder<T> = T Function(
+  Map<String, dynamic> data,
+  String documentId,
+);
 
 class FirestoreService {
   FirestoreService._();
@@ -77,6 +82,17 @@ class FirestoreService {
         snapshot.data()! as Map<String, dynamic>,
         snapshot.id,
       ),
+    );
+  }
+
+  Future<T> documentByReference<T>({
+    required DocumentReference reference,
+    required Builder<T> builder,
+  }) async {
+    final snapshot = await reference.get();
+    return builder(
+      snapshot.data()! as Map<String, dynamic>,
+      snapshot.id,
     );
   }
 }

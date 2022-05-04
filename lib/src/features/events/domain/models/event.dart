@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'partner.dart';
+import '../../../event/domain/models/partner.dart';
 import 'type.dart';
 
 part 'event.freezed.dart';
@@ -18,7 +18,6 @@ class Event with _$Event {
     required String shortDescription,
     required String longDescription,
     required String price,
-    @Default(<Partner>[]) List<Partner> partners,
     @Default(<Type>[]) List<Type> types,
   }) = _Event;
 

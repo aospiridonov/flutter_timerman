@@ -14,6 +14,11 @@
     "user_not_found": "Пользователь не найден...",
     
     "save" : "Сохранить",
+    "participate": "Участвовать",
+    "competition": "Соревнование",
+
+    "partners": "Партнеры",
+    "visit_site": "Посетить сайт",
 
     "first_name": "Имя",
     "middle_name": "Отчество",
